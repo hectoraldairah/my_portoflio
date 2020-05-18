@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli:wght@300;400;700;800&display=swap");
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+*,
+html,
+body {
+  font-family: "Muli", sans-serif !important;
+}
+
+a {
+  box-shadow: none;
+}
+
+.underline--magical {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+
+.underline--magical:hover {
+  background-size: 100% 88%;
+}

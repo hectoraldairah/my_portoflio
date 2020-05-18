@@ -1,38 +1,52 @@
-import React from "react";
+import React from "react"
+import Layout from "../components/layout"
+import profileImage from "../images/me.png";
+import "../styles/about.css";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import dogIllustration from "../images/dog-illustration.svg";
-
-function AboutPage() {
+const About = ({ location }) => {
   return (
-    <Layout>
-      <SEO
-        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
-        title="About"
-      />
-
-      <section className="flex flex-col items-center md:flex-row">
-        <div className="md:w-2/3 md:mr-8">
-          <blockquote className="pl-4 font-serif leading-loose text-justify border-l-4 border-gray-900">
-            The point is... to live one&apos;s life in the full complexity of
-            what one is, which is something much darker, more contradictory,
-            more of a maelstrom of impulses and passions, of cruelty, ecstacy,
-            and madness, than is apparent to the civilized being who glides on
-            the surface and fits smoothly into the world.
-          </blockquote>
-
-          <cite className="block mt-4 text-xs font-bold text-right uppercase">
-            – Thomas Nagel
-          </cite>
+    <Layout location={location}>
+      <div className="h-screen bg-gray-100 flex aboutContainer">
+        <div className="pl-48 pt-32 description ">
+          <p className="text-xl font-light">about me</p>
+          <h1 className="font-extrabold text-6xl w-3/5">
+            I'm a junior developer of life
+          </h1>
+          <div className="mt-20 w-2/4">
+            <p className="font-light text-xl leading-relaxed">
+              I’m a front-end developer based on Mexico City making user
+              interfaces that combines user centered design and visual
+              aesthetics. I’m always in the process of learning something new
+              and taking new challenges. I love everything related with design,
+              art, science, programming, web culture and food
+            </p>
+          </div>
+          <div className="mt-16">
+            <p className="font-light text-xl">
+              You can see my{" "}
+              <span className="font-extrabold underline--magical cursor-pointer">
+                resume here
+              </span>
+            </p>
+          </div>
+          <div className="mt-8">
+            <p className="font-light text-xl">
+              Contact me at{" "}
+              <span className="font-extrabold underline--magical cursor-pointer">
+                hectoraldairah@gmail.com
+              </span>
+            </p>
+          </div>
         </div>
+        <div className="image ml-20 mt-12">
+          <div className="">
+            <img id="me" src={profileImage} />
+          </div>
+        </div>
+      </div>
 
-        <figure className="w-2/3 md:w-1/3">
-          <img alt="A dog relaxing" src={dogIllustration} />
-        </figure>
-      </section>
     </Layout>
-  );
+  )
 }
 
-export default AboutPage;
+export default About

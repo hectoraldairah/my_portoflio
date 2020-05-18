@@ -1,1 +1,3 @@
-import "./src/css/style.css";
+// custom typefaces
+import "./src/styles/global.css"
+require("typeface-muli")
