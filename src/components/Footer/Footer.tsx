@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const Footer: React.FC = () => {
   return (
@@ -26,13 +26,27 @@ const Footer: React.FC = () => {
               </a>{" "}
             </li>
             <li className="inline-block px-5">
-              <a className="underline--magical font-extrabold text-xl">Behance</a>
+              <a
+                target="_blank"
+                href="https://www.behance.net/bit_byte"
+                className="underline--magical font-extrabold text-xl"
+              >
+                Behance
+              </a>
             </li>
             <li className="inline-block px-5">
-              <a className="underline--magical font-extrabold text-xl">Instagram</a>
+              <a className="underline--magical font-extrabold text-xl">
+                Instagram
+              </a>
             </li>
             <li className="inline-block px-5">
-              <a className="underline--magical font-extrabold text-xl">Github</a>
+              <a
+                target="_blank"
+                href="https://github.com/hectoraldairah"
+                className="underline--magical font-extrabold text-xl"
+              >
+                Github
+              </a>
             </li>
             <li className="inline-block px-5">
               <a
@@ -47,7 +61,7 @@ const Footer: React.FC = () => {
         </nav>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

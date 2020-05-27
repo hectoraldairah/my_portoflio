@@ -1,7 +1,9 @@
-import React from "react"
-import Layout from "../components/layout"
+import React from "react";
+import PropTypes from "prop-types";
+import Layout from "../components/layout";
 import profileImage from "../images/me.png";
 import "../styles/about.css";
+import resume from "../utils/resume.pdf";
 
 const About = ({ location }) => {
   return (
@@ -10,7 +12,7 @@ const About = ({ location }) => {
         <div className="pl-48 pt-32 description ">
           <p className="text-xl font-light">about me</p>
           <h1 className="font-extrabold text-6xl w-3/5">
-            I'm a junior developer of life
+            {"I'm a junior developer of life"}
           </h1>
           <div className="mt-20 w-2/4">
             <p className="font-light text-xl leading-relaxed">
@@ -25,7 +27,9 @@ const About = ({ location }) => {
             <p className="font-light text-xl">
               You can see my{" "}
               <span className="font-extrabold underline--magical cursor-pointer">
-                resume here
+                <a href={resume} download>
+                  resume here
+                </a>
               </span>
             </p>
           </div>
@@ -44,9 +48,12 @@ const About = ({ location }) => {
           </div>
         </div>
       </div>
-
     </Layout>
-  )
-}
+  );
+};
 
-export default About
+About.propTypes = {
+  location: PropTypes.object
+};
+
+export default About;
