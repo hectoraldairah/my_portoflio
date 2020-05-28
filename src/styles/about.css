@@ -1,6 +1,7 @@
 .aboutContainer {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
+  height: 100%;
 }
 
 .description {

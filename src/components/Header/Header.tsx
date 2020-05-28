@@ -40,10 +40,12 @@ const Header: React.FC<Props> = ({ location }) => {
         </div>
         <ul
           className={`${
-            showMenu && windowSize < 768 ? "block h-screen" : "hidden"
-          } ${showMenu &&
-            windowSize < 768 &&
-            "flex-col items-center  justify-center text-3xl"}  flex md:flex md:flex-row`}
+            showMenu && windowSize < 768
+              ? "block h-screen flex-col items-center justify-center text-3xl"
+              : "hidden"
+          } ${
+            showMenu && windowSize < 768 ? styles.openMenu : ""
+          } flex md:flex md:flex-row`}
         >
           <NavbarItem showMenu={showMenu} pathname={pathname} pageName="work" />
           <NavbarItem showMenu={showMenu} pathname={pathname} pageName="blog" />

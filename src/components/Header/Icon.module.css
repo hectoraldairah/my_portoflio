@@ -69,3 +69,23 @@
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
+
+.openMenu {
+  animation-duration: 0.7s;
+  animation-name: slidein;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  padding-bottom: 5rem;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-500px);
+    height: 0px;
+  }
+
+  to {
+    transform: translateY(0px);
+    height: 100vh;
+  }
+}

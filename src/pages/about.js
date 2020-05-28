@@ -8,7 +8,7 @@ import resume from "../utils/resume.pdf";
 const About = ({ location }) => {
   return (
     <Layout location={location}>
-      <div className="h-screen bg-gray-100 flex aboutContainer">
+      <div className="h-screen pb-20 bg-gray-100 flex aboutContainer">
         <div className="pl-10 pr-10  pt-20 lg:pr-1 lg:pl-48 lg:pt-32 description ">
           <p className="text-base md:text-xl font-light">about me</p>
           <h1 className="font-extrabold text-5xl lg:text-6xl lg:w-3/5">

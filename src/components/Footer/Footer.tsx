@@ -16,49 +16,55 @@ const Footer: React.FC = () => {
         <p className="text-lg">My social networks</p>
         <nav className="mt-2">
           <ul className="text-2xl lg:text-xl flex flex-col md:flex-row ">
-            <li className="inline-block">
-              <a
-                target="_blank"
-                href="https://codepen.io/bitbyte"
-                className="underline--magical font-extrabold"
-              >
-                Codepen
-              </a>{" "}
-            </li>
-            <li className="inline-block md:px-5">
-              <a
-                target="_blank"
-                href="https://www.behance.net/bit_byte"
-                className="underline--magical font-extrabold"
-              >
-                Behance
-              </a>
-            </li>
-            <li className="inline-block md:px-5">
-              <a className="underline--magical font-extrabold">Instagram</a>
-            </li>
-            <li className="inline-block md:px-5">
-              <a
-                target="_blank"
-                href="https://github.com/hectoraldairah"
-                className="underline--magical font-extrabold"
-              >
-                Github
-              </a>
-            </li>
-            <li className="inline-block md:px-5">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/hectoraldairaguilar/"
-                className="underline--magical font-extrabold"
-              >
-                LinkedIn
-              </a>
-            </li>
+            <FooterLinkItem
+              noMargin={true}
+              link="https://codepen.io/bitbyte"
+              text="Codepen"
+            />
+            <FooterLinkItem
+              link="https://www.behance.net/bit_byte"
+              text="Behance"
+            />
+            <FooterLinkItem
+              link="https://github.com/hectoraldairah"
+              text="Instagram"
+            />
+            <FooterLinkItem
+              link="https://github.com/hectoraldairah"
+              text="Github"
+            />
+            <FooterLinkItem
+              link="https://www.linkedin.com/in/hectoraldairaguilar/"
+              text="LinkedIn"
+            />
           </ul>
         </nav>
       </div>
     </footer>
+  );
+};
+
+interface LinkItemProps {
+  noMargin?: boolean;
+  link: string;
+  text: string;
+}
+
+const FooterLinkItem: React.FC<LinkItemProps> = ({
+  noMargin = false,
+  link,
+  text
+}) => {
+  return (
+    <li className={`unline-block ${noMargin ? "" : "md:px-5"}`}>
+      <a
+        target="_blank"
+        href={link}
+        className="underline--magical font-extrabold"
+      >
+        {text}
+      </a>
+    </li>
   );
 };
 
