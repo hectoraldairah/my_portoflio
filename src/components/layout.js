@@ -6,7 +6,7 @@ const Layout = ({ location, title, children }) => {
   return (
     <>
       <Header location={location} />
-      <main className="pt-24">{children}</main>
+      <main className="pt-16">{children}</main>
       <Footer />
     </>
   );

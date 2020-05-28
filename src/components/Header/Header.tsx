@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import resume from "../../utils/resume.pdf";
+import getWindowSize from "./getWindowSize";
+import styles from "./Icon.module.css";
 
 interface Props {
   location: {
@@ -15,28 +17,36 @@ interface NavItem {
 
 const Header: React.FC<Props> = ({ location }) => {
   const [showMenu, setMenu] = useState<boolean>(false);
+  const windowSize = getWindowSize();
   const pathname = location.pathname.replace(/[/]/g, "");
 
-  console.log(showMenu);
-
   return (
-    <div className="mx-auto px-10 py-6 z-50 bg-white fixed w-full">
-      <nav className="flex-row md:justify-between">
+    <div className="mx-auto px-10 py-6 z-50 bg-white fixed w-full shadow-sm">
+      <nav
+        className={`${windowSize >= 768 ? "flex" : "flex-row"} justify-between`}
+      >
         <div className="flex flex-row justify-between items-baseline">
           <h5 className="font-extrabold mr-auto">Hector Aguilar</h5>
-          <p
+          <div
             onClick={() => setMenu(!showMenu)}
-            className="md:hidden font-extrabold pointer"
+            className={`md:hidden cursor-pointer font-extrabold pointer ${
+              styles.navIcon
+            } ${showMenu ? styles.navOpen : ""}`}
           >
-            menu
-          </p>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
         <ul
-          className={`${showMenu ? "block h-screen" : "hidden"} ${showMenu &&
+          className={`${
+            showMenu && windowSize < 768 ? "block h-screen" : "hidden"
+          } ${showMenu &&
+            windowSize < 768 &&
             "flex-col items-center  justify-center text-3xl"}  flex md:flex md:flex-row`}
         >
-          <NavbarItem showMenu={showMenu} pathname={pathname} pageName="blog" />
           <NavbarItem showMenu={showMenu} pathname={pathname} pageName="work" />
+          <NavbarItem showMenu={showMenu} pathname={pathname} pageName="blog" />
           <NavbarItem
             showMenu={showMenu}
             pathname={pathname}
