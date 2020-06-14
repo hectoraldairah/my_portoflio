@@ -21,9 +21,9 @@ const Header: React.FC<Props> = ({ location }) => {
   const pathname = location.pathname.replace(/[/]/g, "");
 
   return (
-    <div className="mx-auto px-10 py-6 z-50 bg-white fixed w-full shadow-sm">
+    <div className="mx-auto px-10 py-5 z-50 bg-white fixed w-full shadow-sm">
       <nav
-        className={`${windowSize >= 768 ? "flex" : "flex-row"} justify-between`}
+        className={`${windowSize >= 768 ? "flex" : "flex-row"} justify-between items-center`}
       >
         <div className="flex flex-row justify-between items-baseline">
           <h5 className="font-extrabold mr-auto">Hector Aguilar</h5>
@@ -63,7 +63,7 @@ const Header: React.FC<Props> = ({ location }) => {
 
 const NavbarItem: React.FC<NavItem> = ({ pageName, pathname, showMenu }) => {
   return (
-    <li className={`${showMenu && "block"} md:inline-block px-6`}>
+    <li className={`${showMenu && "block"} md:inline-block px-6 m-0`}>
       <Link
         to={`/${pageName}`}
         className={`shadow-none ${pathname === pageName &&
@@ -77,7 +77,7 @@ const NavbarItem: React.FC<NavItem> = ({ pageName, pathname, showMenu }) => {
 };
 
 const ResumeItem: React.FC = () => (
-  <li className="inline-block px-6 transition duration-200 ease-in-out hover:text-gray-500">
+  <li className="inline-block px-6 transition duration-200 ease-in-out hover:text-gray-500 m-0">
     <a href={resume} target="_blank" className="shadow-none">
       resume
     </a>

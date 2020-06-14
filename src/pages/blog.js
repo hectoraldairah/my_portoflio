@@ -11,15 +11,15 @@ const Blog = ({ location, data }) => {
   console.log(latestPost);
   return (
     <Layout location={location}>
-      <div className="bg-gray-100 pb-10 md:pb-0 lg:h-screen ">
+      <div className="bg-gray-100 pb-10 md:pb-0 ">
         <div className="flex flex-col lg:flex-row lg:content-around w-full lg:pl-32 pt-20 px-10">
           <div className="lg:pt-16 lg:pl-10">
             <p className="text-base md:text-xl font-light">my blog</p>
-            <h1 className="font-extrabold text-5xl lg:text-6xl md:w-1/2 lg:w-4/5">
+            <h1 className="font-extrabold text-5xl lg:text-6xl md:w-1/2 lg:w-5/6">
               I was thinking about...
             </h1>
           </div>
-          <div className="pt-16 md:mt-20 md:p-20 lg:mt-0  lg:pr-40">
+          <div className="pt-16 md:mt-20 md:p-20 lg:mt-0  lg:pr-24">
             <NewPost
               title={latestPost.node.frontmatter.title}
               date={latestPost.node.frontmatter.date}

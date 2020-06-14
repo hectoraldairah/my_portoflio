@@ -17,7 +17,7 @@ const NewPost: React.FC<NewPostProps> = ({
   slug
 }) => {
   return (
-    <article className="border-8 border-double p-8 md:p-20 lg:p-20 ">
+    <article className="border-8 p-8 md:p-20 lg:pl-10 lg:pt-10 lg:pb-10">
       <header>
         <h1 className="text-4xl md:text-5xl lg:text-6xl underline--magical font-extrabold">
           <Link to={slug}>{title}</Link>
