@@ -26,7 +26,7 @@ const Header: React.FC<Props> = ({ location }) => {
         className={`${windowSize >= 768 ? "flex" : "flex-row"} justify-between items-center`}
       >
         <div className="flex flex-row justify-between items-baseline">
-          <h5 className="font-extrabold mr-auto">Hector Aguilar</h5>
+          <h5 className="font-extrabold mr-auto mt-0">Hector Aguilar</h5>
           <div
             onClick={() => setMenu(!showMenu)}
             className={`md:hidden cursor-pointer font-extrabold pointer ${
