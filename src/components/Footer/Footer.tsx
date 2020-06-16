@@ -59,6 +59,7 @@ const FooterLinkItem: React.FC<LinkItemProps> = ({
     <li className={`unline-block ${noMargin ? "" : "md:px-5"}`}>
       <a
         target="_blank"
+        rel="noreferrer"
         href={link}
         className="underline--magical font-extrabold"
       >
