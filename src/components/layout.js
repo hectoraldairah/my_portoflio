@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "gatsby";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header.tsx";
+import Footer from "../components/Footer/Footer.tsx";
+import "../styles/layout.css";
+
 const Layout = ({ location, title, children }) => {
   return (
     <>

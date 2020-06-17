@@ -4,11 +4,6 @@
 
 @tailwind utilities;
 
-*,
-html,
-body {
-	font-family: "Muli", sans-serif;
-}
 
 a {
 	box-shadow: none;
