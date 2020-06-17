@@ -19,13 +19,13 @@ const Header: React.FC<Props> = ({ location }) => {
   const [showMenu, setMenu] = useState<boolean>(false);
   const windowSize = getWindowSize();
   const pathname = location.pathname.replace(/[/]/g, "");
-  
+
   const isMobile = windowSize >= 768 ? "flex" : "flex-row";
 
   return (
     <div className="mx-auto px-10 py-5 z-50 bg-white fixed w-full shadow-sm">
       <nav
-        className={`${isMobile} justify-between items-center`}
+        className={`${isMobile} flex-row md:flex justify-between items-center`}
       >
         <div className="flex flex-row justify-between items-baseline">
           <h5 className="font-extrabold mr-auto mt-0">Hector Aguilar</h5>
