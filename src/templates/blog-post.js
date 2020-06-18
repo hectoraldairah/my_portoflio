@@ -27,7 +27,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           className="text-lg blog-post"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-        <hr />
       </article>
       <PostsNavigations previous={previous} next={next} />
       <hr className="p-1 bg-gray-100 mt-10" />

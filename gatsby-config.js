@@ -80,17 +80,6 @@ module.exports = {
     },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-preload-fonts`,
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Muli`,
-            variants: [`300`, `400`, `700`]
-          }
-        ]
-      }
-    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
