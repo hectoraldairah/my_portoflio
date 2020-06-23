@@ -28,8 +28,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </article>
-      <PostsNavigations previous={previous} next={next} />
-      <hr className="p-1 bg-gray-100 mt-10" />
+      <section className="bg-gray-100 py-12 mt-10">
+        <PostsNavigations previous={previous} next={next} />
+      </section>
     </Layout>
   );
 };
@@ -60,12 +61,12 @@ const PostsNavigations = ({ previous, next }) => {
 BlogPostTemplate.propTypes = {
   data: PropTypes.obj,
   location: PropTypes.obj,
-  pageContext: PropTypes.obj
+  pageContext: PropTypes.obj,
 };
 
 PostsNavigations.propTypes = {
   previous: PropTypes.obj,
-  next: PropTypes.obj
+  next: PropTypes.obj,
 };
 export default BlogPostTemplate;
 
