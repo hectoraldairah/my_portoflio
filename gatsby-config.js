@@ -1,32 +1,32 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `hectoraldairah`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`
+      name: `Hector Aldair Aguilar Hernandez`,
+      summary: `who like design, art and programming almost as cooking`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `This is my blog.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `BitByte_`,
       codepen: `https://codepen.io/bitbyte`,
-      linkedin: `https://www.linkedin.com/in/hectoraldairaguilar/`
-    }
+      linkedin: `https://www.linkedin.com/in/hectoraldairaguilar/`,
+    },
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`
-      }
+        name: `blog`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`
-      }
+        name: `assets`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -35,20 +35,20 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590
-            }
+              maxWidth: 590,
+            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
-            }
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`
-        ]
-      }
+          `gatsby-remark-smartypants`,
+        ],
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -56,32 +56,32 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
-      }
+      },
     },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
+        name: `Bit Byte`,
+        short_name: `BitByte`,
+        start_url: `/work`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`
-      }
+        icon: `content/assets/site-favicon.png`,
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require("tailwindcss")]
-      }
+        postCssPlugins: [require("tailwindcss")],
+      },
     },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-preload-fonts`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ]
+  ],
 };
