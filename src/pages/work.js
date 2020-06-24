@@ -50,21 +50,26 @@ const Work = ({ location }) => {
 
 const WorkProjects = ({ url, postTitle, postDescription, index }) => {
   let played = false;
+
   function showProjects() {
-    let timeline = Anime.timeline({
-      targets: `#project-${index}`,
-      opacity: [0, 1],
-      translateY: [100, 0],
-      duration: 1000,
-      delay: 100,
-      easing: "easeInQuad",
-    }).add({
-      targets: `#project-description-${index}`,
-      opacity: [0, 1],
-      translateY: [100, 0],
-      delay: 100,
-      easing: "easeInQuad",
-    });
+    if (!played) {
+      let timeline = Anime.timeline({
+        targets: `#project-${index}`,
+        opacity: [0, 1],
+        translateY: [100, 0],
+        duration: 1000,
+        delay: 100,
+        easing: "easeInQuad",
+      }).add({
+        targets: `#project-description-${index}`,
+        opacity: [0, 1],
+        translateY: [100, 0],
+        delay: 100,
+        easing: "easeInQuad",
+      });
+    }
+    played = true;
+    return;
   }
 
   return (

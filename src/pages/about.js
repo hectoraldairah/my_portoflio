@@ -10,10 +10,22 @@ import { Waypoint } from "react-waypoint";
 const About = ({ location }) => {
   let played = false;
   useEffect(() => {
-    Anime({
-      targets: ["#about", "#profile", "#description"],
+    let anime = Anime.timeline({
+      easing: "easeOutExpo",
+      duration: 1000,
+    });
+
+    anime.add({
+      targets: ["#about", "#description"],
       opacity: [0, 1],
       duration: 1000,
+      delay: 500,
+      easing: "easeInQuad",
+    });
+
+    anime.add({
+      targets: "#profile",
+      opacity: [0, 1],
       delay: 500,
       easing: "easeInQuad",
     });
