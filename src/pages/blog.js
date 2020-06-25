@@ -6,12 +6,15 @@ import NewPost from "../components/NewPost/newPost.tsx";
 import PostItem from "../components/PostItem/PostItem.tsx";
 import Anime from "react-anime";
 import animeProps from "../utils/anime.js";
+import SEO from "../components/seo";
 
 const Blog = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges;
+  const siteTitle = data.site.siteMetadata.title;
   const latestPost = posts[0];
   return (
-    <Layout location={location}>
+    <Layout site={siteTitle} location={location}>
+      <SEO title="blog" />
       <Anime {...animeProps}>
         <div className="bg-gray-100 pb-10 md:pb-0 ">
           <div className="flex flex-col lg:flex-row lg:content-around w-full lg:pl-32 pt-20 px-10">
@@ -56,13 +59,18 @@ const Blog = ({ location, data }) => {
 
 Blog.propTypes = {
   location: PropTypes.object,
-  data: PropTypes.object
+  data: PropTypes.object,
 };
 
 export default Blog;
 
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
       edges {
         node {

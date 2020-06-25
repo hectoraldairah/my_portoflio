@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Anime from "animejs";
 import { Waypoint } from "react-waypoint";
+import SEO from "../components/seo";
 
 const Projects = [
   {
@@ -18,9 +20,11 @@ const Projects = [
   },
 ];
 
-const Work = ({ location }) => {
+const Work = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title;
   return (
-    <Layout location={location}>
+    <Layout site={siteTitle} location={location}>
+      <SEO title="Work" />
       <div className="bg-gray-100 pb-10">
         <div className="pl-10 pt-20 md:pl-20 md:pt-24 lg:pl-48 lg:pt-24">
           <p className="text-base md:text-xl font-light">{`Hello friend. I'm `}</p>
@@ -101,3 +105,13 @@ const WorkProjects = ({ url, postTitle, postDescription, index }) => {
   );
 };
 export default Work;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

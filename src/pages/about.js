@@ -1,24 +1,26 @@
 import React, { useEffect } from "react";
+import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Layout from "../components/layout";
 import profileImage from "../images/me.png";
 import "../styles/about.css";
 import resume from "../utils/resume.pdf";
 import Anime from "animejs";
-import { Waypoint } from "react-waypoint";
+import SEO from "../components/seo";
 
-const About = ({ location }) => {
+const About = ({ location, data }) => {
+  const siteTitle = data.site.siteMetadata.title;
   let played = false;
   useEffect(() => {
     let anime = Anime.timeline({
       easing: "easeOutExpo",
-      duration: 1000,
+      duration: 500,
     });
 
     anime.add({
       targets: ["#about", "#description"],
       opacity: [0, 1],
-      duration: 1000,
+      duration: 500,
       delay: 500,
       easing: "easeInQuad",
     });
@@ -32,7 +34,8 @@ const About = ({ location }) => {
   }, []);
 
   return (
-    <Layout location={location}>
+    <Layout site={siteTitle} location={location}>
+      <SEO title="About me" />
       <div className="h-screen pb-20 bg-gray-100 flex aboutContainer">
         <div className="px-10 pt-20 bg-white m-3 pb-10 md:m-10 lg:m-20 lg:pb-10 lg:pr-1 lg:pl-32 lg:pt-32 description ">
           <p id="about" className="text-base md:text-xl font-light">
@@ -86,3 +89,13 @@ About.propTypes = {
 };
 
 export default About;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;
