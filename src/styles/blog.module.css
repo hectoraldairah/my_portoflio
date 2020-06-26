@@ -1,0 +1,13 @@
+.blogContainer {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.postContent {
+  grid-column: 1 / 2;
+}
+
+.illustration {
+  grid-column: 2 / -1;
+  background-color: red;
+}

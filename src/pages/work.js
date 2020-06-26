@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import Anime from "animejs";
 import { Waypoint } from "react-waypoint";
 import SEO from "../components/seo";
+import Anime from "animejs";
 
 const Projects = [
   {
@@ -28,8 +28,12 @@ const Work = ({ data, location }) => {
       <div className="bg-gray-100 pb-10">
         <div className="pl-10 pt-20 md:pl-20 md:pt-24 lg:pl-48 lg:pt-24">
           <p className="text-base text-black md:text-xl font-light">{`Hello friend. I'm `}</p>
-          <h1 className="font-extrabold text-black text-5xl md:text-6xl md:w-4/5 lg:w-2/3">
-            Hector - UI Developer based on Mexico City
+          <h1 className="font-extrabold text-black text-5xl md:text-6xl md:w-4/5 lg:w-2/3 ml7">
+            <span className="text-wrapper">
+              <span className="letters">
+                Hector - UI Developer based on Mexico City
+              </span>
+            </span>
           </h1>
         </div>
         <div className="pt-16 px-10 md:px-1 lg:pt-24 lg:pr-56 items-end flex flex-col">
