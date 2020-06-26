@@ -59,7 +59,7 @@ const PostsNavigations = ({ previous, next }) => {
 };
 
 BlogPostTemplate.propTypes = {
-  data: PropTypes.obj,
+  data: PropTypes.any,
   location: PropTypes.obj,
   pageContext: PropTypes.obj,
 };

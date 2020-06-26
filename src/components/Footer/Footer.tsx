@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
     <footer className="px-10 lg:px-24 pt-24 pb-10">
       <div className="lg:pr-20">
         <p className="text-lg">Let's get in touch</p>
-        <h1 className="font-extrabold text-black mt-2 text-2xl lg:text-5xl lg:w-4/5 tracking-wide leading-snug">
+        <h1 className="font-extrabold text-black mt-2 text-3xl lg:text-5xl lg:w-4/5 tracking-wide leading-snug">
           Do you want to talk about programming, work, or cooking?{" "}
           <span className="underline--magical cursor">
             <a href="mailto:hectoraldairah@gmail.com">Email me</a>
@@ -61,7 +61,7 @@ const FooterLinkItem: React.FC<LinkItemProps> = ({
         target="_blank"
         rel="noreferrer"
         href={link}
-        className="underline--magical text-black font-extrabold"
+        className="underline--magical text-xl text-black font-extrabold"
       >
         {text}
       </a>
