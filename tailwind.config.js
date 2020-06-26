@@ -1,6 +1,12 @@
 module.exports = {
   theme: {
     extend: {
+      colors: {
+        black: "#231F34",
+      },
+      fontSize: {
+        "7xl": "5rem",
+      },
       spacing: {
         "1/2": "50%",
         "1/3": "33.333333%",

@@ -23,12 +23,14 @@ const Header: React.FC<Props> = ({ location }) => {
   const isMobile = windowSize >= 768 ? "flex" : "flex-row";
 
   return (
-    <div className="mx-auto px-10 py-5 z-50 bg-white fixed w-full shadow-sm">
+    <div className="mx-auto px-10 py-5 z-50 bg-white fixed w-full shadow-sm header">
       <nav
         className={`${isMobile} flex-row md:flex justify-between items-center`}
       >
         <div className="flex flex-row justify-between items-baseline">
-          <h5 className="font-extrabold mr-auto mt-0">Hector Aguilar</h5>
+          <h5 className="font-extrabold mr-auto mt-0">
+            <Link to="/work">Hector Aguilar</Link>
+          </h5>
           <div
             onClick={() => setMenu(!showMenu)}
             className={`md:hidden cursor-pointer font-extrabold pointer ${
@@ -70,7 +72,7 @@ const NavbarItem: React.FC<NavItem> = ({ pageName, pathname, showMenu }) => {
         to={`/${pageName}`}
         className={`shadow-none ${pathname === pageName &&
           "font-extrabold"} ${pathname !== pageName &&
-          "transition duration-200 ease-in-out hover:text-gray-500"}`}
+          "transition duration-200 text-black ease-in-out hover:text-gray-500"}`}
       >
         {pageName}
       </Link>

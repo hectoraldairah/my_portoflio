@@ -27,13 +27,13 @@ const Work = ({ data, location }) => {
       <SEO title="Work" />
       <div className="bg-gray-100 pb-10">
         <div className="pl-10 pt-20 md:pl-20 md:pt-24 lg:pl-48 lg:pt-24">
-          <p className="text-base md:text-xl font-light">{`Hello friend. I'm `}</p>
-          <h1 className="font-extrabold text-5xl md:text-6xl md:w-4/5 lg:w-2/3">
+          <p className="text-base text-black md:text-xl font-light">{`Hello friend. I'm `}</p>
+          <h1 className="font-extrabold text-black text-5xl md:text-6xl md:w-4/5 lg:w-2/3">
             Hector - UI Developer based on Mexico City
           </h1>
         </div>
         <div className="pt-16 px-10 md:px-1 lg:pt-24 lg:pr-56 items-end flex flex-col">
-          <p className="text-lg md:text-xl md:w-4/5 lg:w-1/2 font-light">
+          <p className="text-lg text-black md:text-xl md:w-4/5 lg:w-1/2 font-light">
             I am currently working as a web UI developer on Globant. I love to
             create clean and useful user interfaces for great products. Very
             interested in UX and data visualization

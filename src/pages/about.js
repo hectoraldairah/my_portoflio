@@ -20,7 +20,7 @@ const About = ({ location, data }) => {
     anime.add({
       targets: ["#about", "#description"],
       opacity: [0, 1],
-      duration: 500,
+      duration: 250,
       delay: 500,
       easing: "easeInQuad",
     });
@@ -43,7 +43,7 @@ const About = ({ location, data }) => {
           </p>
           <h1
             id="about"
-            className="font-extrabold text-5xl lg:text-6xl lg:w-3/5 z-40 relative opacity-0"
+            className="font-extrabold text-black text-5xl lg:text-6xl lg:w-3/5 z-40 relative opacity-0"
           >
             {"I'm a junior developer of life"}
           </h1>
@@ -58,7 +58,7 @@ const About = ({ location, data }) => {
           <div className="mt-16">
             <p className="font-light text-lg lg:text-xl">
               You can see my{" "}
-              <span className="font-extrabold underline--magical cursor-pointer">
+              <span className="font-extrabold text-black underline--magical cursor-pointer">
                 <a href={resume} download>
                   resume here
                 </a>
@@ -68,7 +68,7 @@ const About = ({ location, data }) => {
           <div className="mt-8">
             <p className="font-light text-lg lg:text-xl">
               Contact me at{" "}
-              <span className="font-extrabold underline--magical cursor-pointer">
+              <span className="font-extrabold text-black underline--magical cursor-pointer">
                 hectoraldairah@gmail.com
               </span>
             </p>
