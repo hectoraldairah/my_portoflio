@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import P5 from "p5";
+import window from "global";
 const NotFoundPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
 
