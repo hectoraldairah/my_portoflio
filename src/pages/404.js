@@ -22,8 +22,10 @@ class NotFound extends React.Component {
   }
 
   Sketch = (p) => {
+    let width = typeof window !== "undefined" && window.innerWidth;
+    let height = typeof window !== "undefined" && window.innerHeight;
     p.setup = () => {
-      p.createCanvas(window.innerWidth - 19, 500);
+      p.createCanvas(width - 19, 500);
       p.background(0);
     };
 
@@ -33,7 +35,7 @@ class NotFound extends React.Component {
       c.setAlpha(200);
       p.fill(c);
 
-      p.translate(window.innerWidth / 2, window.innerHeight / 2);
+      p.translate(width / 2, height / 2);
       for (let i = 0; i < 700; i += 3) {
         let lastAng = (i - 1) / 10 + p.frameCount / 300;
         let ang = i / 10 + p.frameCount / 300;
