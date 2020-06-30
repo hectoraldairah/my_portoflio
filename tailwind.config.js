@@ -5,6 +5,7 @@ module.exports = {
         black: "#231F34",
       },
       fontSize: {
+        "5.5xl": "3.5rem",
         "7xl": "5rem",
       },
       spacing: {

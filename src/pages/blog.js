@@ -5,7 +5,6 @@ import Layout from "../components/layout";
 import NewPost from "../components/NewPost/newPost.tsx";
 import PostItem from "../components/PostItem/PostItem.tsx";
 import SEO from "../components/seo";
-import styles from "../styles/blog.module.css";
 
 const Blog = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges;
@@ -14,25 +13,21 @@ const Blog = ({ location, data }) => {
     <Layout site={siteTitle} location={location}>
       <SEO title="Blog" />
       <div className="bg-gray-100 pb-10">
-        <div className={``}>
-          <div className={``}>
-            <div className="px-10 pt-20 lg:px-24">
-              <p className="text-lg font-thin">My Articles</p>
-              {posts.map((props, index) => {
-                return (
-                  <PostItem
-                    index={index}
-                    key={props.node.frontmatter.title}
-                    title={props.node.frontmatter.title}
-                    date={props.node.frontmatter.date}
-                    timeToRead={props.node.timeToRead}
-                    description={props.node.frontmatter.description}
-                    slug={props.node.fields.slug}
-                  />
-                );
-              })}
-            </div>
-          </div>
+        <div className="px-10 pt-20 lg:px-24">
+          <p className="text-lg font-thin">My Articles</p>
+          {posts.map((props, index) => {
+            return (
+              <PostItem
+                index={index}
+                key={props.node.frontmatter.title}
+                title={props.node.frontmatter.title}
+                date={props.node.frontmatter.date}
+                timeToRead={props.node.timeToRead}
+                description={props.node.frontmatter.description}
+                slug={props.node.fields.slug}
+              />
+            );
+          })}
         </div>
       </div>
     </Layout>

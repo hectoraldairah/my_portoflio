@@ -74,9 +74,9 @@ const About = ({ location, data }) => {
             </p>
           </div>
         </div>
-        <div id="profile" className="image hidden lg:block lg:ml-20 mt-12">
+        <div id="profile" className="image  lg:block lg:ml-20 lg:mt-12">
           <div className="">
-            <img id="me" src={profileImage} />
+            <img id="me" className="profile-image" src={profileImage} />
           </div>
         </div>
       </div>
