@@ -7,6 +7,8 @@ module.exports = {
       fontSize: {
         "5.5xl": "3.5rem",
         "7xl": "5rem",
+        "8xl": "6rem",
+        "9xl": "7rem",
       },
       spacing: {
         "1/2": "50%",
