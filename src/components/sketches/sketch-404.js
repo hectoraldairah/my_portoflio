@@ -10,34 +10,34 @@ export default class NotFound extends React.Component {
   Sketch = (p) => {
     let width = window.innerWidth;
     let height = window.innerHeight;
+    let hoff = 0;
+    let yoff = 0;
     p.setup = () => {
       p.createCanvas(width - 19, 500);
-      p.background(0);
+      p.noStroke();
     };
 
     p.draw = () => {
-      p.background(0);
-      let c = p.color(203, 213, 224);
-      c.setAlpha(200);
-      p.fill(c);
+      p.background(255);
+      let h = p.map(p.noise(hoff), 0, 1, 0, 360);
+      p.fill(h, 40, 90);
+      p.push();
+      p.translate(width / 2, height / 2 - 80);
 
-      p.translate(width / 2, height / 2);
-      for (let i = 0; i < 700; i += 3) {
-        let lastAng = (i - 1) / 10 + p.frameCount / 300;
-        let ang = i / 10 + p.frameCount / 300;
-        let r = i;
-        p.line(
-          r * p.cos(lastAng),
-          r * p.sin(lastAng),
-          r * p.cos(ang),
-          r * p.sin(ang)
-        );
-        p.textSize(50);
-        p.push();
-        p.translate(r * p.cos(lastAng), r * p.sin(lastAng));
-        p.text("???"[i % 10], 0, 0);
-        p.pop();
+      p.beginShape();
+      let xoff = 0;
+      for (let i = 0; i <= p.TWO_PI / 0.008; i += 0.03) {
+        let offset = p.map(p.noise(xoff + yoff), 0, 1, -50, 40);
+        let r = p.map(p.noise(hoff), 0, 1, 150, 200);
+        r += offset;
+        let x = r * p.sin(i);
+        let y = r * p.cos(i);
+        p.vertex(x, y);
+        xoff += 0.009;
       }
+      p.endShape();
+      yoff += 0.01;
+      hoff += 0.008;
     };
   };
 
@@ -48,8 +48,9 @@ export default class NotFound extends React.Component {
   render() {
     return (
       <div ref={this.myRef} className="flex justify-center items-center">
-        <div className="absolute text-white text-4xl lg:text-7xl font-extrabold">
+        <div className="absolute text-black text-4xl lg:text-7xl font-extrabold">
           Page not found
+          <p className="text-center text-white text-xl">You're in the void</p>
         </div>
       </div>
     );
