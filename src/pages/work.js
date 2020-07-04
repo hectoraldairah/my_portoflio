@@ -22,16 +22,42 @@ const Projects = [
 
 const Work = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
+
+  useEffect(() => {
+    let anime = Anime.timeline({
+      easing: "easeOutExpo",
+      duration: 1000,
+    });
+
+    anime.add({
+      targets: ["#hello"],
+      opacity: [0, 1],
+      duration: 250,
+      delay: 500,
+      easing: "easeInQuad",
+    });
+
+    anime.add({
+      targets: ["#im"],
+      opacity: [0, 1],
+      duration: 250,
+      delay: 250,
+      easing: "easeInQuad",
+    });
+  }, []);
   return (
     <Layout site={siteTitle} location={location}>
       <SEO title="Work" />
-      <div className="bg-gray-100 pb-10">
-        <div className="py-10 px-5 md:py-20 md:px-10 lg:py-24 lg:px-20">
-          <p className="text-base text-black md:text-xl font-light">{`Hello friend. I'm Hector`}</p>
-          <h1 className="font-extrabold text-black text-2xl md:text-6xl">
-            I'm a front-end developer that loves design clean and useful
-            interfaces for great products
-          </h1>
+      <div className="bg-gray-100 h-full py-10 px-4 lg:pt-1 lg:pb-20 ">
+        <div className="bg-white mx-1 mt-1 px-3 py-3 lg:mx-10  lg:mt-16 lg:px-10 lg:py-10">
+          <p
+            id="hello"
+            className="font-thin text-lg opacity-0"
+          >{`Hello friend. I'm Hector`}</p>
+          <h1
+            id="im"
+            className="text-2xl font-extrabold text-black opacity-0 md:text-5xl lg:text-6xl"
+          >{`I'm a front-end developer that loves design clean and useful interfaces for great products`}</h1>
         </div>
       </div>
       <section className="mt-20 px-3 md:px-10">
@@ -68,31 +94,31 @@ const WorkProjects = ({ url, postTitle, postDescription, index }) => {
   }
 
   return (
-    <article
-      className={`flex flex-col py-5 lg:py-20 ${
-        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-      }`}
-    >
-      <Waypoint onEnter={() => showProjects()}>
+    <Waypoint onEnter={() => showProjects()}>
+      <article
+        className={`flex flex-col py-5 lg:py-20 ${
+          index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+        }`}
+      >
         <div
           id={`project-${index}`}
           className="relative w-full bg-red-500 pb-1/2 md:pb-1/3 lg:pb-5/11"
         >
           <img className="absolute h-full w-full object-cover" src={url} />
         </div>
-      </Waypoint>
-      <div
-        id={`project-description-${index}`}
-        className="p-3 md:p-10"
-        style={{ overflowWrap: "break-word" }}
-      >
-        <h1 className="text-xl md:text-2xl font-extrabold">{postTitle}</h1>
-        <p className="text-base mt-3 font-thin mb-10">{postDescription}</p>
-        <a className="underline--magical font-extrabold mt-10 text-sm">
-          See case study
-        </a>
-      </div>
-    </article>
+        <div
+          id={`project-description-${index}`}
+          className="p-3 md:p-10"
+          style={{ overflowWrap: "break-word" }}
+        >
+          <h1 className="text-xl md:text-2xl font-extrabold">{postTitle}</h1>
+          <p className="text-base mt-3 font-thin mb-10">{postDescription}</p>
+          <a className="underline--magical font-extrabold mt-10 text-sm">
+            See case study
+          </a>
+        </div>
+      </article>
+    </Waypoint>
   );
 };
 export default Work;

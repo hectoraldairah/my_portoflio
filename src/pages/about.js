@@ -38,7 +38,7 @@ const About = ({ location, data }) => {
       <SEO title="About me" />
       <div className="h-screen pb-20 bg-gray-100 flex aboutContainer">
         <div className="px-10 pt-20 bg-white m-3 pb-10 md:m-10 lg:m-20 lg:pb-10 lg:pr-1 lg:pl-32 lg:pt-32 description ">
-          <p id="about" className="text-base md:text-xl font-light">
+          <p id="about" className="text-base md:text-xl font-light opacity-0">
             about me
           </p>
           <h1
@@ -74,7 +74,10 @@ const About = ({ location, data }) => {
             </p>
           </div>
         </div>
-        <div id="profile" className="image  lg:block lg:ml-20 lg:mt-12">
+        <div
+          id="profile"
+          className="image  lg:block lg:ml-20 lg:mt-12 opacity-0"
+        >
           <div className="">
             <img id="me" className="profile-image" src={profileImage} />
           </div>
