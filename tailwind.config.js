@@ -2,6 +2,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        lead: "#878A8F",
         black: "#231F34",
       },
       fontSize: {
@@ -37,6 +38,9 @@ module.exports = {
         "9/12": "75%",
         "10/12": "83.333333%",
         "11/12": "91.666667%",
+      },
+      letterSpacing: {
+        widest: ".25em",
       },
     },
   },

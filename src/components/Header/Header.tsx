@@ -28,8 +28,8 @@ const Header: React.FC<Props> = ({ location }) => {
         className={`${isMobile} flex-row md:flex justify-between items-center`}
       >
         <div className="flex flex-row justify-between items-baseline">
-          <h5 className="font-extrabold mr-auto mt-0">
-            <Link to="/work">Hector Aguilar</Link>
+          <h5 className="font-extrabold text-sm mr-auto mt-0">
+            <Link to="/">Hector Aguilar</Link>
           </h5>
           <div
             onClick={() => setMenu(!showMenu)}
@@ -51,7 +51,7 @@ const Header: React.FC<Props> = ({ location }) => {
             showMenu && windowSize < 768 ? styles.openMenu : ""
           } flex md:flex md:flex-row`}
         >
-          <NavbarItem showMenu={showMenu} pathname={pathname} pageName="work" />
+          <NavbarItem showMenu={showMenu} pathname={pathname} />
           <NavbarItem showMenu={showMenu} pathname={pathname} pageName="blog" />
           <NavbarItem
             showMenu={showMenu}
@@ -65,14 +65,21 @@ const Header: React.FC<Props> = ({ location }) => {
   );
 };
 
-const NavbarItem: React.FC<NavItem> = ({ pageName, pathname, showMenu }) => {
+const NavbarItem: React.FC<NavItem> = ({
+  pageName = "home",
+  pathname,
+  showMenu,
+}) => {
   return (
     <li className={`${showMenu && "block"} md:inline-block px-6 m-0`}>
       <Link
-        to={`/${pageName}`}
+        to={`/${pageName === "home" ? "" : pageName}`}
         className={`shadow-none ${pathname === pageName &&
-          "font-extrabold"} ${pathname !== pageName &&
-          "transition duration-200 text-black ease-in-out hover:text-gray-500"}`}
+          "font-extrabold text-black"} ${pathname !== pageName &&
+          "transition duration-200 ease-in-out hover:text-black"} ${pathname ===
+          "" &&
+          pageName === "home" &&
+          "font-extrabold"} text-gray-700 capitalize text-sm`}
       >
         {pageName}
       </Link>
