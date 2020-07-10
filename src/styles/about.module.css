@@ -1,0 +1,46 @@
+.aboutContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.3fr 1fr 1fr;
+  grid-template-areas:
+    "title"
+    "image"
+    "description";
+  gap: 2rem;
+  height: 100%;
+}
+
+.titleContainer {
+  grid-area: title;
+  height: 100%;
+}
+
+.descriptionContainer {
+  grid-area: description;
+}
+
+.imageContainer {
+  grid-area: image;
+}
+
+.imageContainer img {
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .aboutContainer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    grid-template-areas:
+      "title image"
+      "description image";
+  }
+
+  .descriptionContainer {
+    grid-column: 1 / 2;
+  }
+
+  .imageContainer {
+    grid-column: 2 / -1;
+  }
+}

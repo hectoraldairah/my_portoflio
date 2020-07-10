@@ -10,7 +10,7 @@ interface Props {
   };
 }
 interface NavItem {
-  pageName: string;
+  pageName?: string;
   pathname: string;
   showMenu: boolean;
 }
@@ -29,7 +29,9 @@ const Header: React.FC<Props> = ({ location }) => {
       >
         <div className="flex flex-row justify-between items-baseline">
           <h5 className="font-extrabold text-sm mr-auto mt-0">
-            <Link to="/">Hector Aguilar</Link>
+            <Link to="/" className="ml-3">
+              Hector Aguilar
+            </Link>
           </h5>
           <div
             onClick={() => setMenu(!showMenu)}
@@ -89,7 +91,11 @@ const NavbarItem: React.FC<NavItem> = ({
 
 const ResumeItem: React.FC = () => (
   <li className="inline-block px-6 transition duration-200 ease-in-out hover:text-gray-500 m-0">
-    <a href={resume} target="_blank" className="shadow-none">
+    <a
+      href={resume}
+      target="_blank"
+      className="shadow-none capitalize text-sm text-gray-700"
+    >
       resume
     </a>
   </li>

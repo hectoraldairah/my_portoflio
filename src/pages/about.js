@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Layout from "../components/layout";
 import profileImage from "../images/me.png";
-import "../styles/about.css";
+import styles from "../styles/about.module.css";
 import resume from "../utils/resume.pdf";
 import Anime from "animejs";
 import SEO from "../components/seo";
@@ -14,21 +14,43 @@ const About = ({ location, data }) => {
   useEffect(() => {
     let anime = Anime.timeline({
       easing: "easeOutExpo",
-      duration: 500,
     });
 
     anime.add({
       targets: ["#about", "#description"],
       opacity: [0, 1],
+      translateY: [100, 0],
       duration: 250,
-      delay: 500,
       easing: "easeInQuad",
     });
 
     anime.add({
       targets: "#profile",
       opacity: [0, 1],
-      delay: 500,
+      translateY: [100, 0],
+      duration: 250,
+      easing: "easeInQuad",
+    });
+
+    anime.add({
+      targets: "#txt1",
+      opacity: [0, 1],
+      translateY: [50, 0],
+      duration: 250,
+      easing: "easeInQuad",
+    });
+    anime.add({
+      targets: "#txt2",
+      opacity: [0, 1],
+      translateY: [50, 0],
+      duration: 250,
+      easing: "easeInQuad",
+    });
+    anime.add({
+      targets: "#txt3",
+      opacity: [0, 1],
+      translateY: [50, 0],
+      duration: 250,
       easing: "easeInQuad",
     });
   }, []);
@@ -36,50 +58,71 @@ const About = ({ location, data }) => {
   return (
     <Layout site={siteTitle} location={location}>
       <SEO title="About me" />
-      <div className="h-screen pb-20 bg-gray-100 flex aboutContainer">
-        <div className="px-10 pt-20 bg-white m-3 pb-10 md:m-10 lg:m-20 lg:pb-10 lg:pr-1 lg:pl-32 lg:pt-32 description ">
-          <p id="about" className="text-base md:text-xl font-light opacity-0">
-            about me
-          </p>
-          <h1
-            id="about"
-            className="font-extrabold text-black text-5xl lg:text-6xl lg:w-3/5 z-40 relative opacity-0"
-          >
-            {"I'm a junior developer of life"}
-          </h1>
-          <div className="mt-20 lg:w-2/4">
-            <p
-              id="description"
-              className="font-light text-base lg:text-lg leading-relaxed"
-            >
-              {`I'm a front-end developer based on Mexico City, making user interfaces that combine user-centered design and visual aesthetics. I'm always in the process of learning something new and taking new challenges. I love everything related to design, art, science, programming, web culture, and food`}
-            </p>
-          </div>
-          <div className="mt-16">
-            <p className="font-light text-lg lg:text-xl">
-              You can see my{" "}
-              <span className="font-extrabold text-black underline--magical cursor-pointer">
-                <a href={resume} download>
-                  resume here
-                </a>
-              </span>
-            </p>
-          </div>
-          <div className="mt-8">
-            <p className="font-light text-lg lg:text-xl">
-              Contact me at{" "}
-              <span className="font-extrabold text-black underline--magical cursor-pointer">
-                hectoraldairah@gmail.com
-              </span>
-            </p>
-          </div>
-        </div>
+      <div className="bg-gray-100  h-full py-10 px-4 lg:pt-1 lg:pb-20">
         <div
-          id="profile"
-          className="image  lg:block lg:ml-20 lg:mt-12 opacity-0"
+          className={`bg-white py-5 px-5 lg:px-10 lg:mx-10 lg:py-10 lg:mt-16 ${styles.aboutContainer}`}
         >
-          <div className="">
-            <img id="me" className="profile-image" src={profileImage} />
+          <div className={`${styles.titleContainer}`}>
+            <p id="about" className="font-normal text-xl text-lead opacity-0">
+              About me
+            </p>
+            <h1
+              id="description"
+              className="font-extrabold text-black text-4xl lg:text-6xl opacity-0"
+            >{`I'm a junior developer of life`}</h1>
+          </div>
+          <div className={`${styles.descriptionContainer}`}>
+            <div>
+              <p id="txt1" className="text-lg font-normal text-lead opacity-0">
+                Hi there! I'm Hector- a front-end developer based on Mexico
+                City, making user interfaces that combine user-centered design
+                and visual aesthetics. I'm always in the process of learning
+                something new and taking new challenges.
+              </p>
+              <p id="txt2" className="text-lg font-normal text-lead mt-10">
+                In my free time, I like to learn about languages (Esperanto is a
+                funny language) and write about my process of learning them.
+                Also I love everything related with art, science, gastronomy and
+                web culture.
+              </p>
+
+              <p id="txt3" className="text-lg font-normal text-lead mt-10">
+                Find me on{" "}
+                <span className="underline--magical font-bold text-black">
+                  Instragram
+                </span>
+                ,{` `}
+                <span className="underline--magical font-bold text-black">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/hectoraldairaguilar/"
+                  >
+                    LinkedIn
+                  </a>
+                </span>
+                , or{` `}
+                <span className="underline--magical font-bold text-black">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://twitter.com/bitbyte_"
+                  >
+                    Twitter
+                  </a>
+                </span>
+                . You can also send me good old-fashioned{" "}
+                <span className="text-black underline--magical font-bold">
+                  <a href="mailto:hectoraldairah@gmail.com">email</a>
+                </span>
+                .
+              </p>
+            </div>
+          </div>
+          <div className={`${styles.imageContainer}`}>
+            <div className="flex justify-end">
+              <img src={profileImage}></img>
+            </div>
           </div>
         </div>
       </div>
