@@ -60,20 +60,20 @@ const Index = ({ data, location }) => {
   return (
     <Layout site={siteTitle} location={location}>
       <SEO title="Work" />
-      <div className="bg-gray-100 h-full py-10 px-4 lg:pt-1 lg:pb-20 ">
+      <div className="bg-white h-full py-10 px-4 lg:pt-1 lg:pb-20 ">
         <div className="bg-white mx-1 mt-1 px-3 py-3 lg:mx-10  lg:mt-16 lg:px-10 lg:py-10">
           <p
             id="hello"
-            className="font-regular text-lead text-lg opacity-0"
+            className="font-light tracking-wider  text-lg opacity-0"
           >{`Hello friend. I'm Hector`}</p>
           <h1
             id="im"
-            className="text-4xl font-extrabold text-black opacity-0 md:text-5xl lg:text-6xl"
+            className="text-4xl font-extrabold text-black opacity-0 md:text-5xl lg:text-6xl lg:tracking-wide"
           >
             {`I'm a front-end developer that loves design clean and useful interfaces for great products`}
-            <span className="text-2xl">{`■`}</span>
+            <span className="text-base lg:text-base">{`■`}</span>
           </h1>
-          <nav id="cta" className="flex items-end py-2 opacity-0">
+          <nav id="cta" className="flex items-end py-2 mt-5 opacity-0">
             <h4 className="text-bold text-lg text-black underline--magical mr-1">
               Check my work
             </h4>
@@ -149,7 +149,7 @@ const WorkProjects = ({ url, postTitle, postDescription, index }) => {
           }`}
           style={{ overflowWrap: "break-word" }}
         >
-          <div className={`${isPair ? "text-right" : "text-left"}`}>
+          <div className={`${isPair ? "text-right" : "text-left"} px-2`}>
             <h1 className="text-xl text-black font-extrabold md:text-2xl lg:text-4xl">
               {postTitle}
             </h1>

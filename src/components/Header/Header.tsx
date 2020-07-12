@@ -28,9 +28,9 @@ const Header: React.FC<Props> = ({ location }) => {
         className={`${isMobile} flex-row md:flex justify-between items-center`}
       >
         <div className="flex flex-row justify-between items-baseline">
-          <h5 className="font-extrabold text-sm mr-auto mt-0">
-            <Link to="/" className="ml-3">
-              Hector Aguilar
+          <h5 className="font-extrabold text-black text-base tracking-tight mr-auto mt-0">
+            <Link to="/" className="lg:ml-3">
+              Hector <span className="font-normal">Aguilar</span>
             </Link>
           </h5>
           <div
@@ -60,7 +60,7 @@ const Header: React.FC<Props> = ({ location }) => {
             pathname={pathname}
             pageName="about"
           />
-          <ResumeItem />
+          <ResumeItem showMenu={showMenu} />
         </ul>
       </nav>
     </div>
@@ -73,7 +73,10 @@ const NavbarItem: React.FC<NavItem> = ({
   showMenu,
 }) => {
   return (
-    <li className={`${showMenu && "block"} md:inline-block px-6 m-0`}>
+    <li
+      className={`${showMenu &&
+        "block text-4xl mt-5"} text-sm md:inline-block px-6 m-0`}
+    >
       <Link
         to={`/${pageName === "home" ? "" : pageName}`}
         className={`shadow-none ${pathname === pageName &&
@@ -81,7 +84,7 @@ const NavbarItem: React.FC<NavItem> = ({
           "transition duration-200 ease-in-out hover:text-black"} ${pathname ===
           "" &&
           pageName === "home" &&
-          "font-extrabold"} text-gray-700 capitalize text-sm`}
+          "font-extrabold"} text-gray-700 capitalize `}
       >
         {pageName}
       </Link>
@@ -89,12 +92,15 @@ const NavbarItem: React.FC<NavItem> = ({
   );
 };
 
-const ResumeItem: React.FC = () => (
-  <li className="inline-block px-6 transition duration-200 ease-in-out hover:text-gray-500 m-0">
+const ResumeItem: React.FC<{ showMenu: boolean }> = ({ showMenu }) => (
+  <li
+    className={`${showMenu &&
+      "text-4xl mt-5"} text-sm inline-block px-6 transition duration-200 ease-in-out hover:text-gray-500 m-0`}
+  >
     <a
       href={resume}
       target="_blank"
-      className="shadow-none capitalize text-sm text-gray-700"
+      className="shadow-none capitalize text-gray-700"
     >
       resume
     </a>

@@ -3,9 +3,9 @@ import React from "react";
 const Footer: React.FC = () => {
   return (
     <footer className="px-10 lg:px-12 pt-24 pb-10 lg:pb-12">
-      <div className="lg:pr-20">
+      <div className="lg:pr-20 ">
         <p className="text-lg font-light">Let's get in touch</p>
-        <h1 className="font-extrabold text-black mt-2 text-3xl lg:text-5.5xl lg:w-5/6 tracking-wide leading-snug">
+        <h1 className="font-extrabold text-black mt-2 text-3xl lg:text-5xl lg:w-5/6 tracking-normal leading-snug">
           Do you want to talk about programming, work, or cooking?{" "}
           <span className="underline--magical cursor">
             <a href="mailto:hectoraldairah@gmail.com">Email me</a>

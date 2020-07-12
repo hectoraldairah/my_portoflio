@@ -14,6 +14,7 @@ const About = ({ location, data }) => {
   useEffect(() => {
     let anime = Anime.timeline({
       easing: "easeOutExpo",
+      duration: 1000,
     });
 
     anime.add({
@@ -21,6 +22,7 @@ const About = ({ location, data }) => {
       opacity: [0, 1],
       translateY: [100, 0],
       duration: 250,
+      delay: 500,
       easing: "easeInQuad",
     });
 
@@ -29,6 +31,7 @@ const About = ({ location, data }) => {
       opacity: [0, 1],
       translateY: [100, 0],
       duration: 250,
+      delay: 250,
       easing: "easeInQuad",
     });
 
@@ -37,6 +40,7 @@ const About = ({ location, data }) => {
       opacity: [0, 1],
       translateY: [50, 0],
       duration: 250,
+      delay: 250,
       easing: "easeInQuad",
     });
     anime.add({
@@ -44,6 +48,7 @@ const About = ({ location, data }) => {
       opacity: [0, 1],
       translateY: [50, 0],
       duration: 250,
+      delay: 250,
       easing: "easeInQuad",
     });
     anime.add({
@@ -51,6 +56,7 @@ const About = ({ location, data }) => {
       opacity: [0, 1],
       translateY: [50, 0],
       duration: 250,
+      delay: 250,
       easing: "easeInQuad",
     });
   }, []);
@@ -58,12 +64,15 @@ const About = ({ location, data }) => {
   return (
     <Layout site={siteTitle} location={location}>
       <SEO title="About me" />
-      <div className="bg-gray-100  h-full py-10 px-4 lg:pt-1 lg:pb-20">
+      <div className="bg-white h-full py-10 px-4 lg:pt-1 lg:pb-20">
         <div
           className={`bg-white py-5 px-5 lg:px-10 lg:mx-10 lg:py-10 lg:mt-16 ${styles.aboutContainer}`}
         >
           <div className={`${styles.titleContainer}`}>
-            <p id="about" className="font-normal text-xl text-lead opacity-0">
+            <p
+              id="about"
+              className="font-normal text-base text-black opacity-0 tracking-wider"
+            >
               About me
             </p>
             <h1
@@ -73,20 +82,20 @@ const About = ({ location, data }) => {
           </div>
           <div className={`${styles.descriptionContainer}`}>
             <div>
-              <p id="txt1" className="text-lg font-normal text-lead opacity-0">
-                Hi there! I'm Hector- a front-end developer based on Mexico
-                City, making user interfaces that combine user-centered design
-                and visual aesthetics. I'm always in the process of learning
+              <p id="txt1" className="text-lg font-normal text-black opacity-0">
+                Hi there! I'm Hector- a front-end developer based on Mexico City
+                that makes user interfaces that combine user-centered design and
+                visual aesthetics. I'm always in the process of learning
                 something new and taking new challenges.
               </p>
-              <p id="txt2" className="text-lg font-normal text-lead mt-10">
+              <p id="txt2" className="text-lg font-normal text-black mt-10">
                 In my free time, I like to learn about languages (Esperanto is a
-                funny language) and write about my process of learning them.
-                Also I love everything related with art, science, gastronomy and
-                web culture.
+                funny language) and write about my learning process. Also, I
+                love everything related to art, science, gastronomy, and web
+                culture.
               </p>
 
-              <p id="txt3" className="text-lg font-normal text-lead mt-10">
+              <p id="txt3" className="text-lg font-normal text-black mt-10">
                 Find me on{" "}
                 <span className="underline--magical font-bold text-black">
                   Instragram
@@ -111,7 +120,7 @@ const About = ({ location, data }) => {
                     Twitter
                   </a>
                 </span>
-                . You can also send me good old-fashioned{" "}
+                . You can also send me an old-fashioned{" "}
                 <span className="text-black underline--magical font-bold">
                   <a href="mailto:hectoraldairah@gmail.com">email</a>
                 </span>

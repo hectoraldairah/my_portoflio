@@ -3,7 +3,7 @@ module.exports = {
     extend: {
       colors: {
         lead: "#878A8F",
-        black: "#231F34",
+        black: "#36313D",
       },
       fontSize: {
         "5.5xl": "3.5rem",

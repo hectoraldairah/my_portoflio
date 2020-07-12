@@ -3,54 +3,82 @@ import { Link, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import styles from "../styles/blog-post.module.css";
+import Img from "gatsby-image";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
+  const featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid;
+  console.log(post);
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article className="p-3 mt-5 md:p-10 lg:px-32">
-        <header className="pb-5 md:mt-10 md:mb-20 lg:mt-5">
-          <h1 className="font-extrabold text-black text-5xl md:text-6xl lg:text-7xl">
+      <article className={`${styles.postLayout}`}>
+        <div className={`${styles.postImage}`}>
+          <Img fluid={featuredImgFluid} />
+        </div>
+        <div className={`${styles.postDescription} p-10 mx-5`}>
+          <h1 className="font-bold tracking-tight text-black text-3xl md:text-4xl lg:text-5xl">
             {post.frontmatter.title}
           </h1>
-          <p className="mt-2 text-base">
-            {`${post.frontmatter.date} • ${post.timeToRead} min read`}
+          <p className="mt-5 text-black text-base text-lead md:text-lg">
+            {post.frontmatter.description}
           </p>
-        </header>
-        <section
-          className="text-lg blog-post"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+        </div>
+        <section className={`${styles.postContent} px-6`}>
+          <div
+            className="blog-post"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          ></div>
+          <hr />
+        </section>
       </article>
-      <section className="bg-gray-100 py-12 mt-10">
-        <PostsNavigations previous={previous} next={next} />
-      </section>
+      <PostsNavigations previous={previous} next={next} />
     </Layout>
   );
 };
 
 const PostsNavigations = ({ previous, next }) => {
   return (
-    <nav className="px-5 md:px-12 lg:px-64">
+    <nav className="px-5 lg:px-12 py-5 mt-20">
       <ul className="flex justify-between">
-        <li className="change-post font-bold">
+        <li className="font-bold  text-black text-base lg:text-2xl">
           {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              {`⟵ ${previous.frontmatter.title}`}
-            </Link>
+            <div className="flex">
+              <div className=" text-2xl mr-2 md:text-4xl md:mr-5">{`<-`}</div>
+              <div>
+                <p className="font-thin text-sm">Previous post</p>
+                <Link
+                  className="underline--magical pinter"
+                  to={previous.fields.slug}
+                  rel="prev"
+                >
+                  {`${previous.frontmatter.title}`}
+                </Link>
+              </div>
+            </div>
           )}
         </li>
-        <li className="change-post font-bold">
+        <li className="font-bold text-black text-base lg:text-2xl">
           {next && (
-            <Link to={next.fields.slug} rel="next">
-              {`${next.frontmatter.title} ⟶ `}
-            </Link>
+            <div className="flex">
+              <div>
+                <p className="font-thin text-sm">Next post</p>{" "}
+                <Link
+                  className="underline--magical pointer"
+                  to={next.fields.slug}
+                  rel="next"
+                >
+                  {`${next.frontmatter.title}`}
+                </Link>
+              </div>
+              <div className="text-2xl mr-2 md:text-4xl md:ml-5">{`->`}</div>
+            </div>
           )}
         </li>
       </ul>
@@ -85,6 +113,13 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
       timeToRead
     }

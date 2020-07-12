@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Layout from "../components/layout";
-import NewPost from "../components/NewPost/newPost.tsx";
 import PostItem from "../components/PostItem/PostItem.tsx";
 import SEO from "../components/seo";
 

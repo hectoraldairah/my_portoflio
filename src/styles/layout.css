@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap");
 html {
-  font-family: "Lato", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 h1,
@@ -9,7 +10,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lato", sans-serif;
+  /*   font-family: "Lato", sans-serif; */
+  font-family: "Inter", sans-serif;
 }
 
 .header {
