@@ -71,7 +71,7 @@ const Index = ({ data, location }) => {
             className="text-4xl font-extrabold text-black opacity-0 md:text-5xl lg:text-6xl lg:tracking-wide"
           >
             {`I'm a front-end developer that loves design clean and useful interfaces for great products`}
-            <span className="text-base lg:text-base">{`■`}</span>
+            <span className="text-xs lg:text-base">{`■`}</span>
           </h1>
           <nav id="cta" className="flex items-end py-2 mt-5 opacity-0">
             <h4 className="text-bold text-lg text-black underline--magical mr-1">
