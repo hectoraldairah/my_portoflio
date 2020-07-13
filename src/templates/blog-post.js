@@ -11,7 +11,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
   const featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid;
-  console.log(post);
   return (
     <Layout location={location} title={siteTitle}>
       <SEO

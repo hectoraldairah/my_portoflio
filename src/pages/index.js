@@ -60,8 +60,8 @@ const Index = ({ data, location }) => {
   return (
     <Layout site={siteTitle} location={location}>
       <SEO title="Work" />
-      <div className="bg-white h-full py-10 px-4 lg:pt-1 lg:pb-20 ">
-        <div className="bg-white mx-1 mt-1 px-3 py-3 lg:mx-10  lg:mt-16 lg:px-10 lg:py-10">
+      <div className="bg-white h-full py-10  lg:pt-1 lg:pb-20">
+        <div className="bg-white mx-1 mt-1 px-3 py-3 lg:mx-10  lg:mt-16 lg:px-4 lg:py-10">
           <p
             id="hello"
             className="font-light tracking-wider  text-lg opacity-0"
@@ -94,7 +94,7 @@ const Index = ({ data, location }) => {
           </p>
         </div>
         {Projects.map((props, index) => {
-          return <WorkProjects index={index} {...props} />;
+          return <WorkProjects key={index} index={index} {...props} />;
         })}
       </section>
     </Layout>
