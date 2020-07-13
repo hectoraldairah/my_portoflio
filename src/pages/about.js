@@ -64,7 +64,7 @@ const About = ({ location, data }) => {
   return (
     <Layout site={siteTitle} location={location}>
       <SEO title="About me" />
-      <div className="bg-white h-full py-10  lg:pt-1 lg:pb-20">
+      <div className="bg-white h-full py-10 lg:pt-1 lg:pb-20">
         <div
           className={`bg-white py-5 px-5 lg:px-10 lg:mx-10 lg:py-10 lg:mt-16 ${styles.aboutContainer}`}
         >
