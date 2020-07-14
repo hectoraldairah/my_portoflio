@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
+import Img from "gatsby-image";
+
 interface PostItemProps {
   slug: string;
   title: string;
@@ -7,6 +9,7 @@ interface PostItemProps {
   timeToRead: string;
   description: string;
   index: number;
+  image: object;
 }
 
 const PostItem: React.FC<PostItemProps> = ({
@@ -16,28 +19,27 @@ const PostItem: React.FC<PostItemProps> = ({
   timeToRead,
   description,
   index,
+  image,
 }) => {
   return (
-    <article
-      key={slug}
-      className={`${index !== 0 ? "mt-16" : "mt-1"} lg:w-3/5`}
-    >
-      <header className="op">
-        <h1 className="font-extrabold text-black text-5xl ml7">
-          <span className="text-wrapper">
-            <span className="letters">
-              <Link
-                className="underline--magical text-black cursor-pointer"
-                to={slug}
-              >
-                {title}
-              </Link>
-            </span>
-          </span>
-        </h1>
-        <p className="mt-2">{`${date} • ${timeToRead} min to read`}</p>
-      </header>
-      <p className="text-lg font-thin mt-5">{description}</p>
+    <article key={slug} className="px-2 py-10">
+      <div>
+        <Img
+          style={{ maxHeight: "calc(50vh - 0px)" }}
+          fluid={image}
+          imgStyle={{ objectFit: "contain" }}
+        />
+      </div>
+      <div className="mt-10">
+        <h2 className="font-normal tracking-tight text-2xl">
+          <Link className="underline--magical" to={slug}>
+            {title}
+          </Link>
+        </h2>
+        <p className="text-base leading-relaxed tracking-normal text-gray-600 mt-5">
+          {description}
+        </p>
+      </div>
     </article>
   );
 };
