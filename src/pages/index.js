@@ -26,7 +26,7 @@ const Index = ({ data, location }) => {
 
   useEffect(() => {
     let anime = Anime.timeline({
-      easing: "easeOutExpo",
+      easing: "easeOutCirc",
       duration: 1000,
     });
 
@@ -34,27 +34,27 @@ const Index = ({ data, location }) => {
       targets: ["#hello"],
       opacity: [0, 1],
       translateY: [20, 0],
-      duration: 250,
+      duration: 500,
       delay: 500,
-      easing: "easeInQuad",
+      easing: "easeOutCirc",
     });
 
     anime.add({
       targets: ["#im"],
       opacity: [0, 1],
-      translateY: [20, 0],
-      duration: 250,
+      translateY: [100, 0],
+      duration: 1000,
       delay: 250,
-      easing: "easeInQuad",
+      easing: "easeOutCirc",
     });
 
     anime.add({
       targets: ["#cta"],
       opacity: [0, 1],
       translateY: [20, 0],
-      duration: 250,
+      duration: 500,
       delay: 250,
-      easing: "easeInQuad",
+      easing: "easeOutCirc",
     });
   }, []);
   return (
@@ -68,7 +68,7 @@ const Index = ({ data, location }) => {
           >{`Hello friend. I'm Hector`}</p>
           <h1
             id="im"
-            className="text-4xl font-extrabold text-black opacity-0 md:text-5xl lg:text-6xl lg:tracking-wide"
+            className="text-4xl font-extrabold text-black opacity-0 md:text-5xl lg:text-6xl lg:tracking-wider"
           >
             {`I'm a front-end developer that loves design clean and useful interfaces for great products`}
             <span className="text-xs lg:text-base">{`■`}</span>
@@ -97,6 +97,7 @@ const Index = ({ data, location }) => {
           return <WorkProjects key={index} index={index} {...props} />;
         })}
       </section>
+      <Test rows={10} cols={10} />
     </Layout>
   );
 };
@@ -112,13 +113,13 @@ const WorkProjects = ({ url, postTitle, postDescription, index }) => {
         translateY: [100, 0],
         duration: 500,
         delay: 100,
-        easing: "easeInQuad",
+        easing: "easeOutCirc",
       }).add({
         targets: `#project-description-${index}`,
         opacity: [0, 1],
         translateY: [100, 0],
         delay: 100,
-        easing: "easeInQuad",
+        easing: "easeOutCirc",
       });
     }
     played = true;
@@ -164,6 +165,37 @@ const WorkProjects = ({ url, postTitle, postDescription, index }) => {
   );
 };
 export default Index;
+
+const Test = ({ rows, cols }) => {
+  useEffect(() => {
+    Anime({
+      targets: ".boxy .blocky",
+      scale: [
+        { value: 0.1, easing: "easeInSine", duration: 500 },
+        { value: 1, easing: "easeInOutQuad", duration: 1200 },
+      ],
+      delay: Anime.stagger(200, { grid: [10, 10], from: "center" }),
+      loop: true,
+    });
+  }, []);
+  return (
+    <section className="flex w-full justify-center items-center mt-10 bg-blue-100">
+      <div className="boxy">
+        {[...Array(cols * rows - 1)].map((el, i) => {
+          return (
+            <div
+              className="blocky inline-block m-10 rounded-full h-3 w-3"
+              key={i}
+              style={{
+                backgroundColor: "red",
+              }}
+            ></div>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
 
 export const pageQuery = graphql`
   query {
