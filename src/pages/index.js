@@ -97,7 +97,6 @@ const Index = ({ data, location }) => {
           return <WorkProjects key={index} index={index} {...props} />;
         })}
       </section>
-      <Test rows={10} cols={10} />
     </Layout>
   );
 };
@@ -165,37 +164,6 @@ const WorkProjects = ({ url, postTitle, postDescription, index }) => {
   );
 };
 export default Index;
-
-const Test = ({ rows, cols }) => {
-  useEffect(() => {
-    Anime({
-      targets: ".boxy .blocky",
-      scale: [
-        { value: 0.1, easing: "easeInSine", duration: 500 },
-        { value: 1, easing: "easeInOutQuad", duration: 1200 },
-      ],
-      delay: Anime.stagger(200, { grid: [10, 10], from: "center" }),
-      loop: true,
-    });
-  }, []);
-  return (
-    <section className="flex w-full justify-center items-center mt-10 bg-blue-100">
-      <div className="boxy">
-        {[...Array(cols * rows - 1)].map((el, i) => {
-          return (
-            <div
-              className="blocky inline-block m-10 rounded-full h-3 w-3"
-              key={i}
-              style={{
-                backgroundColor: "red",
-              }}
-            ></div>
-          );
-        })}
-      </div>
-    </section>
-  );
-};
 
 export const pageQuery = graphql`
   query {
