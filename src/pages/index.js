@@ -31,67 +31,57 @@ const Index = ({ data, location }) => {
     });
 
     anime.add({
-      targets: ["#hello"],
+      targets: ["#bkg"],
       opacity: [0, 1],
-      translateY: [20, 0],
       duration: 500,
-      delay: 500,
+      delay: 450,
       easing: "easeOutCirc",
     });
 
     anime.add({
-      targets: ["#im"],
+      targets: ["#im", "#cta"],
       opacity: [0, 1],
-      translateY: [100, 0],
+      translateY: [50, 0],
       duration: 1000,
-      delay: 250,
-      easing: "easeOutCirc",
-    });
-
-    anime.add({
-      targets: ["#cta"],
-      opacity: [0, 1],
-      translateY: [20, 0],
-      duration: 500,
-      delay: 250,
+      delay: 450,
       easing: "easeOutCirc",
     });
   }, []);
   return (
     <Layout site={siteTitle} location={location}>
       <SEO title="Work" />
-      <div className="bg-white h-full py-10  lg:pt-1 lg:pb-20">
-        <div className="bg-white mx-1 mt-1 px-3 py-3 lg:mx-10  lg:mt-16 lg:px-4 lg:py-10">
-          <p
-            id="hello"
-            className="font-light tracking-wider  text-lg opacity-0"
-          >{`Hello friend. I'm Hector`}</p>
+      <div className="bg-white h-full py-10 lg:pt-1 lg:pb-20">
+        <div
+          id="bkg"
+          className="bg-black mx-1 mt-1 px-3 py-3 lg:mx-10  lg:mt-16 lg:px-4 lg:py-10 opacity-0"
+        >
           <h1
             id="im"
-            className="text-4xl font-extrabold text-black opacity-0 md:text-5xl lg:text-6xl lg:tracking-wider"
+            className="text-4xl font-extrabold text-white p-3 opacity-0 md:text-5xl lg:text-6xl lg:tracking-tight"
           >
             {`I'm a front-end developer that loves design clean and useful interfaces for great products`}
             <span className="text-xs lg:text-base">{`■`}</span>
           </h1>
-          <nav id="cta" className="flex items-end py-2 mt-5 opacity-0">
-            <h4 className="text-bold text-lg text-black underline--magical mr-1">
+          <nav
+            id="cta"
+            className="absolute bg-white flex justify-center items-end p-4 mt-1  border-4 border-black opacity-0 lg:mt-0"
+          >
+            <span className="font-bold text-lg text-black underline--magical mr-1">
               Check my work
-            </h4>
+            </span>
             <span>or</span>
-            <h4 className="text-bold text-lg text-black underline--magical ml-1">
+            <span className="font-bold text-lg text-black underline--magical ml-1">
               <Link to="about">Read about me</Link>
-            </h4>
+            </span>
           </nav>
         </div>
       </div>
-      <section className="mt-20 px-4 md:px-16">
+      <section className="mt-20 px-2 lg:px-10 ">
         <div className="py-10 md:py-5">
-          <p className="text-base uppercase tracking-widest text-lead font-normal">
+          <p className="text-base uppercase tracking-widest text-black font-normal">
             Selected Projects
           </p>
-          <p className="font-extrabold text-5xl lg:text-6xl text-black">
-            Case Studies ─
-          </p>
+          <p className="font-extrabold text-5xl  text-black">Case Studies</p>
         </div>
         {Projects.map((props, index) => {
           return <WorkProjects key={index} index={index} {...props} />;
@@ -130,32 +120,34 @@ const WorkProjects = ({ url, postTitle, postDescription, index }) => {
   return (
     <Waypoint onEnter={() => showProjects()}>
       <article
-        className={`flex flex-col py-5 md:py-10 ${
-          isPair ? "md:flex-row" : "md:flex-row-reverse"
-        } lg:py-20`}
+        className={`flex flex-col py-10 ${
+          isPair ? "lg:flex-row" : "lg:flex-row-reverse"
+        }`}
       >
         <div
           id={`project-${index}`}
-          className={`relative w-full pb-1/2 md:pb-1/3 lg:pb-5/12`}
+          className="relative w-full  pb-8/12 lg:w-1/2 lg:pb-1/3"
         >
-          <p className="font-extrabold text-2xl text-black pb-2">{`0${index +
-            1}`}</p>
-          <img className="absolute h-full w-full object-cover" src={url} />
+          <p className="font-bold text-lg">{`0${index + 1}`}</p>
+          <img className="absolute w-full h-full object-cover" src={url} />
         </div>
         <div
           id={`project-description-${index}`}
-          className={`flex flex-col pt-10 mt-5 md:mt-1 md:px-10 lg:px-0  ${
-            isPair ? "md:w-1/2 md:items-end" : "md:w-3/5 md:items-start"
-          }`}
-          style={{ overflowWrap: "break-word" }}
+          className="mt-10 lg:w-1/2 px-5"
         >
-          <div className={`${isPair ? "text-right" : "text-left"} px-2`}>
-            <h1 className="text-xl text-black font-extrabold md:text-2xl lg:text-4xl">
-              {postTitle}
-            </h1>
-            <p className="text-lead text-base mt-5">{postDescription}</p>
-            <div className="block mt-10 font-extrabold text-lg">
-              <Link className=" underline--magical">View Case Study</Link>
+          <div
+            className="flex justify-end w-full bg-black mt-1 lg:mt-5"
+            style={{ height: "2px", maxWidth: "80px" }}
+          ></div>
+          <div className="h-full flex items-start justify-end mt-5 md:mt-10">
+            <div className="text-left px-1 ">
+              <h1 className="font-bold text-3xl tracking-tight">{postTitle}</h1>
+              <p className="text-black text-base mt-2">{postDescription}</p>
+              <div className="mt-10">
+                <Link className="font-bold underline--magical">
+                  {`View Case Study ->`}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

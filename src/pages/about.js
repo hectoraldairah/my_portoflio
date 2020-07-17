@@ -13,7 +13,7 @@ const About = ({ location, data }) => {
   let played = false;
   useEffect(() => {
     let anime = Anime.timeline({
-      easing: "easeOutExpo",
+      easing: "easeOutCirc",
       duration: 1000,
     });
 
@@ -21,43 +21,43 @@ const About = ({ location, data }) => {
       targets: ["#about", "#description"],
       opacity: [0, 1],
       translateY: [100, 0],
-      duration: 250,
+      duration: 1000,
       delay: 500,
-      easing: "easeInQuad",
+      easing: "easeOutCirc",
     });
 
     anime.add({
       targets: "#profile",
       opacity: [0, 1],
       translateY: [100, 0],
-      duration: 250,
-      delay: 250,
-      easing: "easeInQuad",
+      duration: 100,
+      delay: 500,
+      easing: "easeOutCirc",
     });
 
     anime.add({
       targets: "#txt1",
       opacity: [0, 1],
       translateY: [50, 0],
-      duration: 250,
-      delay: 250,
-      easing: "easeInQuad",
+      duration: 1000,
+      delay: 500,
+      easing: "easeOutCirc",
     });
     anime.add({
       targets: "#txt2",
       opacity: [0, 1],
       translateY: [50, 0],
-      duration: 250,
-      delay: 250,
-      easing: "easeInQuad",
+      duration: 1000,
+      delay: 500,
+      easing: "easeOutCirc",
     });
     anime.add({
       targets: "#txt3",
       opacity: [0, 1],
       translateY: [50, 0],
-      duration: 250,
-      delay: 250,
-      easing: "easeInQuad",
+      duration: 1000,
+      delay: 500,
+      easing: "easeOutCirc",
     });
   }, []);
 
@@ -68,16 +68,16 @@ const About = ({ location, data }) => {
         <div
           className={`bg-white py-5 px-5 lg:px-10 lg:mx-10 lg:py-10 lg:mt-16 ${styles.aboutContainer}`}
         >
-          <div className={`${styles.titleContainer}`}>
+          <div className={`${styles.titleContainer} relative`}>
             <p
               id="about"
-              className="font-normal text-base text-black opacity-0 tracking-wider"
+              className="absolute -mt-8 z-10 ml-3 bg-white border-2 border-black p-2  font-normal text-base text-black opacity-0 tracking-wider"
             >
               About me
             </p>
             <h1
               id="description"
-              className="font-extrabold text-black text-4xl lg:text-6xl opacity-0"
+              className="bg-black font-extrabold text-white text-4xl p-2 lg:text-6xl opacity-0"
             >{`I'm a junior developer of life`}</h1>
           </div>
           <div className={`${styles.descriptionContainer}`}>

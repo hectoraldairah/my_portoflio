@@ -23,7 +23,7 @@ const Header: React.FC<Props> = ({ location }) => {
   const isMobile = windowSize >= 768 ? "flex" : "flex-row";
 
   return (
-    <div className="mx-auto px-10 py-5 z-50 bg-white fixed w-full header">
+    <div className="mx-auto px-10 py-5 z-50 bg-white fixed w-full header shadow-md">
       <nav
         className={`${isMobile} flex-row md:flex justify-between items-center`}
       >
