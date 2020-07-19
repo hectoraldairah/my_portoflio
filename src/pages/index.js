@@ -139,7 +139,7 @@ const WorkProjects = ({ url, postTitle, postDescription, index }) => {
             className="flex justify-end w-full bg-black mt-1 lg:mt-5"
             style={{ height: "2px", maxWidth: "80px" }}
           ></div>
-          <div className="h-full flex items-start justify-end mt-5 md:mt-10">
+          <div className="h-full flex items-start justify-start mt-5 md:mt-10">
             <div className="text-left px-1 ">
               <h1 className="font-bold text-3xl tracking-tight">{postTitle}</h1>
               <p className="text-black text-base mt-2">{postDescription}</p>

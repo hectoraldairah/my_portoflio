@@ -25,7 +25,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <h1 className="font-bold tracking-tight text-black text-3xl md:text-4xl lg:text-5xl">
             {post.frontmatter.title}
           </h1>
-          <p className="mt-5 text-black text-base text-lead md:text-lg">
+          <p className="mt-5 text-black text-base md:text-lg">
             {post.frontmatter.description}
           </p>
         </div>

@@ -30,7 +30,7 @@ const About = ({ location, data }) => {
       targets: "#profile",
       opacity: [0, 1],
       translateY: [100, 0],
-      duration: 100,
+      duration: 500,
       delay: 500,
       easing: "easeOutCirc",
     });
@@ -39,24 +39,24 @@ const About = ({ location, data }) => {
       targets: "#txt1",
       opacity: [0, 1],
       translateY: [50, 0],
-      duration: 1000,
-      delay: 500,
+      duration: 500,
+      delay: 300,
       easing: "easeOutCirc",
     });
     anime.add({
       targets: "#txt2",
       opacity: [0, 1],
       translateY: [50, 0],
-      duration: 1000,
-      delay: 500,
+      duration: 500,
+      delay: 300,
       easing: "easeOutCirc",
     });
     anime.add({
       targets: "#txt3",
       opacity: [0, 1],
       translateY: [50, 0],
-      duration: 1000,
-      delay: 500,
+      duration: 500,
+      delay: 300,
       easing: "easeOutCirc",
     });
   }, []);
