@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
-import Anime from "animejs";
+import React from 'react';
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 interface PostItemProps {
   slug: string;
@@ -17,33 +16,16 @@ const PostItem: React.FC<PostItemProps> = ({
   slug,
   title,
   date,
-  timeToRead,
   description,
-  index,
   image,
 }) => {
-  useEffect(() => {
-    let anime = Anime.timeline({
-      duration: 100,
-      easing: "easeOutCirc",
-    });
-
-    anime.add({
-      targets: ["#article"],
-      opacity: [0, 1],
-      translateY: [100, 0],
-      duration: 1000,
-      delay: 250,
-      easing: "easeOutCirc",
-    });
-  }, []);
   return (
-    <article id="article" key={slug} className="px-2 py-10 opacity-0">
+    <article id="article" key={slug} className="px-2 py-10">
       <div>
         <Img
-          style={{ maxHeight: "calc(50vh - 0px)" }}
+          style={{ maxHeight: 'calc(50vh - 0px)' }}
           fluid={image}
-          imgStyle={{ objectFit: "contain" }}
+          imgStyle={{ objectFit: 'contain' }}
         />
       </div>
       <div className="mt-10">

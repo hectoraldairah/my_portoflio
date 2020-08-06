@@ -1,70 +1,56 @@
-import React, { useEffect } from "react";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/layout";
-import { Waypoint } from "react-waypoint";
-import SEO from "../components/seo";
-import Anime from "animejs";
+import React, { useEffect } from 'react';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { motion } from 'framer-motion';
+import styles from '../styles/work.module.css';
 
 const Projects = [
   {
     url:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-    postTitle: "Awesome Post title",
-    postDescription: "Awesome long project description with very long words",
+      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+    postTitle: "Arc'teryx",
+    postDescription: 'Awesome long project description with very long words',
+    jobs: 'Front end, Visual Design',
   },
   {
     url:
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80",
-    postTitle: "Awesome Post title",
+      'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80',
+    postTitle: 'Awesome Post title',
     postDescription:
-      "Awesome long project description with very long words. Maybe more words that this",
+      'Awesome long project description with very long words. Maybe more words that this',
+    jobs: 'Front end, Visual Design',
   },
 ];
 
 const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
-
-  useEffect(() => {
-    let anime = Anime.timeline({
-      easing: "easeOutCirc",
-      duration: 1000,
-    });
-
-    anime.add({
-      targets: ["#bkg"],
-      opacity: [0, 1],
-      duration: 500,
-      delay: 450,
-      easing: "easeOutCirc",
-    });
-
-    anime.add({
-      targets: ["#im", "#cta"],
-      opacity: [0, 1],
-      translateY: [50, 0],
-      duration: 1000,
-      delay: 450,
-      easing: "easeOutCirc",
-    });
-  }, []);
   return (
     <Layout site={siteTitle} location={location}>
       <SEO title="Work" />
-      <div className="bg-white h-full py-10 lg:pt-1 lg:pb-20">
-        <div
-          id="bkg"
-          className="bg-black mx-1 mt-1 px-3 py-3 lg:mx-10  lg:mt-16 lg:px-4 lg:py-10 opacity-0"
+      <div className="bg-white h-full py-10 lg:pt-0 lg:pb-20">
+        <motion.div
+          layout
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+          className="bg-black mx-1 mt-1 px-3 py-3 lg:mx-10 lg:mt-10 lg:px-4 lg:py-10 "
         >
-          <h1
-            id="im"
-            className="text-4xl font-extrabold text-white p-3 opacity-0 md:text-5xl lg:text-6xl lg:tracking-tight"
+          <motion.h1
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-4xl font-extrabold text-white p-3 md:text-5xl lg:text-7xl lg:tracking-tight"
           >
             {`I'm a front-end developer that loves design clean and useful interfaces for great products`}
             <span className="text-xs lg:text-base">{`■`}</span>
-          </h1>
-          <nav
-            id="cta"
-            className="absolute bg-white flex justify-center items-end p-4 mt-1  border-4 border-black opacity-0 lg:mt-0"
+          </motion.h1>
+          <motion.nav
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="absolute bg-white flex justify-center items-end p-4 mt-1  border-4 border-black  lg:mt-0"
           >
             <span className="font-bold text-lg text-black underline--magical mr-1">
               Check my work
@@ -73,16 +59,10 @@ const Index = ({ data, location }) => {
             <span className="font-bold text-lg text-black underline--magical ml-1">
               <Link to="about">Read about me</Link>
             </span>
-          </nav>
-        </div>
+          </motion.nav>
+        </motion.div>
       </div>
-      <section className="mt-20 px-2 lg:px-10 ">
-        <div className="py-10 md:py-5">
-          <p className="text-base uppercase tracking-widest text-black font-normal">
-            Selected Projects
-          </p>
-          <p className="font-extrabold text-5xl  text-black">Case Studies</p>
-        </div>
+      <section className="mt-48 px-2 lg:px-10  ">
         {Projects.map((props, index) => {
           return <WorkProjects key={index} index={index} {...props} />;
         })}
@@ -91,68 +71,75 @@ const Index = ({ data, location }) => {
   );
 };
 
-const WorkProjects = ({ url, postTitle, postDescription, index }) => {
-  let played = false;
+const imageMotion = {
+  rest: {
+    scale: 1,
+    opacity: 0.1,
+    transition: {
+      duration: 0.4,
+      type: 'tween',
+      ease: 'easeIn',
+    },
+  },
+  hover: {
+    opacity: 1,
+    scale: 1.1,
+    transition: {
+      duration: 0.4,
+      type: 'tween',
+      ease: 'easeOut',
+    },
+  },
+};
 
-  function showProjects() {
-    if (!played) {
-      let timeline = Anime.timeline({
-        targets: `#project-${index}`,
-        opacity: [0, 1],
-        translateY: [100, 0],
-        duration: 500,
-        delay: 100,
-        easing: "easeOutCirc",
-      }).add({
-        targets: `#project-description-${index}`,
-        opacity: [0, 1],
-        translateY: [100, 0],
-        delay: 100,
-        easing: "easeOutCirc",
-      });
-    }
-    played = true;
-    return;
-  }
+const arrowMotion = {
+  rest: {
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+      type: 'tween',
+      ease: 'easeIn',
+    },
+  },
+  hover: {
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      type: 'tween',
+      ease: 'easeIn',
+    },
+  },
+};
 
-  const isPair = index % 2 == 0;
-
+const WorkProjects = ({ url, index, postTitle, postDescription, jobs }) => {
   return (
-    <Waypoint onEnter={() => showProjects()}>
-      <article
-        className={`flex flex-col py-10 ${
-          isPair ? "lg:flex-row" : "lg:flex-row-reverse"
-        }`}
-      >
-        <div
-          id={`project-${index}`}
-          className="relative w-full  pb-8/12 lg:w-1/2 lg:pb-1/3"
-        >
-          <p className="font-bold text-lg">{`0${index + 1}`}</p>
-          <img className="absolute w-full h-full object-cover" src={url} />
+    <motion.article
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
+      className={styles.postContainer}
+    >
+      <div className={styles.postDescription}>
+        <div className="flex flex-row-reverse justify-between">
+          <p className="text-gray-600">{`0${index + 1}`}</p>
+          <p className="text-gray-600">{jobs}</p>
         </div>
-        <div
-          id={`project-description-${index}`}
-          className="mt-10 lg:w-1/2 px-5"
-        >
-          <div
-            className="flex justify-end w-full bg-black mt-1 lg:mt-5"
-            style={{ height: "2px", maxWidth: "80px" }}
-          ></div>
-          <div className="h-full flex items-start justify-start mt-5 md:mt-10">
-            <div className="text-left px-1 ">
-              <h1 className="font-bold text-3xl tracking-tight">{postTitle}</h1>
-              <p className="text-black text-base mt-2">{postDescription}</p>
-              <div className="mt-10">
-                <Link className="font-bold underline--magical">
-                  {`View Case Study ->`}
-                </Link>
-              </div>
-            </div>
-          </div>
+        <div className="mt-5 lg:mt-10 lg:w-11/12">
+          <p className="text-3xl lg:text-6xl font-bold">{postTitle}</p>
+          <motion.p
+            variants={arrowMotion}
+            className="text-9xl mt-20"
+          >{`->`}</motion.p>
         </div>
-      </article>
-    </Waypoint>
+      </div>
+      <div className={styles.postImageContainer}>
+        <motion.img
+          variants={imageMotion}
+          className={styles.postImage}
+          src={url}
+        ></motion.img>
+      </div>
+    </motion.article>
   );
 };
 export default Index;

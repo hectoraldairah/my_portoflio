@@ -1,49 +1,40 @@
-import React, { useEffect } from "react";
-import { graphql } from "gatsby";
-import PropTypes from "prop-types";
-import Layout from "../components/layout";
-import PostItem from "../components/PostItem/PostItem.tsx";
-import SEO from "../components/seo";
-import styles from "../styles/blog.module.css";
-import Anime from "animejs";
+import React from 'react';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import Layout from '../components/layout';
+import PostItem from '../components/PostItem/PostItem.tsx';
+import SEO from '../components/seo';
+import styles from '../styles/blog.module.css';
+import { motion } from 'framer-motion';
 
 const Blog = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges || {};
   const siteTitle = data.site.siteMetadata.title || {};
 
-  useEffect(() => {
-    let anime = Anime.timeline({
-      easing: "easeOutCirc",
-      duration: 1000,
-    });
-
-    anime.add({
-      targets: ["#blog", "#title"],
-      opacity: [0, 1],
-      translateY: [100, 0],
-      duration: 1000,
-      easing: "easeOutCirc",
-      delay: 450,
-    });
-  }, []);
-
   return (
     <Layout site={siteTitle} location={location}>
       <SEO title="Blog" />
       <div className="bg-white px-10">
-        <div className="mt-16 ml-2">
-          <p id="blog" className="font-light text-black text-lg opacity-0">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="mt-16 ml-2 relative"
+        >
+          <p className="bg-white font-normal text-base text-black absolute -mt-5 ml-2 border-2 border-black p-2 text-lg">
             Blog
           </p>
-          <h1
-            id="title"
-            className="font-bold tracking-tight text-black text-6xl opacity-0"
-          >
+          <h1 className="bg-black p-3 font-bold tracking-tight text-white text-6xl w-full md:w-2/5 ">
             Articles by me
           </h1>
-        </div>
+        </motion.div>
 
-        <div className={`${styles.postContainer}`}>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
+          className={`${styles.postContainer}`}
+        >
           {posts.map((props, index) => {
             return (
               <PostItem
@@ -60,7 +51,7 @@ const Blog = ({ location, data }) => {
               />
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </Layout>
   );
