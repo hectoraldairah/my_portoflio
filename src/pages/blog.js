@@ -18,7 +18,7 @@ const Blog = ({ location, data }) => {
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
           className="mt-16 ml-2 relative"
         >
           <p className="bg-white font-normal text-base text-black absolute -mt-5 ml-2 border-2 border-black p-2 text-lg">
@@ -32,7 +32,7 @@ const Blog = ({ location, data }) => {
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
           className={`${styles.postContainer}`}
         >
           {posts.map((props, index) => {

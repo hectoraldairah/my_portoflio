@@ -10,7 +10,7 @@ const Layout = ({ location, title, children }) => {
       <motion.div
         initial={{ height: '100vh' }}
         animate={{ height: '0px' }}
-        transition={{ duration: 1.2, ease: [0.87, 0, 0.13, 1] }}
+        transition={{ duration: 0.6, ease: [0.87, 0, 0.13, 1] }}
         className="bg-black w-full z-50 absolute"
       ></motion.div>
       <Header location={location} />

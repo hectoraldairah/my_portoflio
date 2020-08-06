@@ -21,7 +21,7 @@ const About = ({ location, data }) => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.5, delay: 1 }}
+            transition={{ duration: 1.5, delay: 0.6 }}
             className={`${styles.titleContainer} relative`}
           >
             <p className="absolute -mt-8 z-10 ml-3 bg-white border-2 border-black p-2  font-normal text-base text-black  tracking-wider">
@@ -32,7 +32,7 @@ const About = ({ location, data }) => {
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 1 }}
+            transition={{ duration: 1.5, delay: 0.6 }}
             className={`${styles.descriptionContainer}`}
           >
             <div>
@@ -85,7 +85,7 @@ const About = ({ location, data }) => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.5, delay: 1 }}
+            transition={{ duration: 1.5, delay: 0.6 }}
             className={`${styles.imageContainer}`}
           >
             <div className="flex justify-end">

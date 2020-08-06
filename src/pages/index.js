@@ -33,7 +33,7 @@ const Index = ({ data, location }) => {
           layout
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
           className="bg-black mx-1 mt-1 px-3 py-3 lg:mx-10 lg:mt-10 lg:px-4 lg:py-10 "
         >
           <motion.h1
